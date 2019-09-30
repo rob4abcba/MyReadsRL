@@ -22,7 +22,7 @@ class Shelf extends React.Component {
                       }}
                     ></div>
                     <div className="book-shelf-changer">
-                      <select value={book.shelf} onChange={e => changeShelf(book, e.target.value)}>
+                      <select value={book.shelf} onChange={e => this.props.changeShelf(book, e.target.value)}>
                         <option value="move" disabled>
                           Move to...
                         </option>

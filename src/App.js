@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 // import * as BooksAPI from './BooksAPI'
-import './App.css'
-import Shelves from './components/Shelves'
-import Header from './components/Header'
-import SearchButton from './components/SearchButton'
-import Search from './components/Search'
-import * as BooksAPI from './BooksAPI'
+import "./App.css";
+import Shelves from "./components/Shelves";
+import Header from "./components/Header";
+import SearchButton from "./components/SearchButton";
+import Search from "./components/Search";
+import * as BooksAPI from "./BooksAPI";
 
 class BooksApp extends React.Component {
   state = {
@@ -17,33 +17,60 @@ class BooksApp extends React.Component {
      */
     showSearchPage: false,
     books: []
-  }
+  };
 
   updateSearchPageState = showSearchPageTrueFalse => {
     console.log("showSearchPageTrueFalse = ", showSearchPageTrueFalse);
     console.log("state = ", this.state);
-    this.setState({showSearchPage: showSearchPageTrueFalse });
-  }
+    this.setState({ showSearchPage: showSearchPageTrueFalse });
+  };
+
+  // updateBookShelfState = (book, shelf) => {
+  //   console.log("book = ", book);
+  //   console.log("shelf = ", shelf);
+  //   console.log("state = ", this.state);
+  //   this.setState({
+  //     books: this.state.books.map(b => {
+  //       (b.id === book.id) ? (b.shelf = shelf) : b;
+  //       return b;
+  //     })
+  //   });
+  // };
+
+  updateBookShelfStateRW = (book, shelf) => {
+    BooksAPI.update(book, shelf)
+    .then(resp => {
+      book.shelf = shelf;
+      this.setState(state => ({
+        books: state.books.filter(b => b.id !== book.id).concat([book])
+      }))
+    })
+  };
 
   componentDidMount() {
-    BooksAPI.getAll().then(resp => this.setState( {books: resp}));
+    BooksAPI.getAll().then(resp => this.setState({ books: resp }));
   }
 
   render() {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-          <Search updateSearchPageStateYo={this.updateSearchPageState}/>
+          <Search updateSearchPageStateYo={this.updateSearchPageState} />
         ) : (
           <div className="list-books">
             <Header />
-            <Shelves allBooks={this.state.books} />
-            <SearchButton updateSearchPageStateYo={this.updateSearchPageState}/>
+            <Shelves
+              allBooks={this.state.books}
+              changeShelf={this.updateBookShelfStateRW}
+            />
+            <SearchButton
+              updateSearchPageStateYo={this.updateSearchPageState}
+            />
           </div>
         )}
       </div>
-    )
+    );
   }
 }
 
-export default BooksApp
+export default BooksApp;
