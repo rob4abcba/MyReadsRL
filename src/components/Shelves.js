@@ -12,9 +12,9 @@ class Shelves extends React.Component {
         return(
             <div className="list-books-content">
             <div>
-                <Shelf books={currentlyReading} title={"Currently Reading"} />
-                <Shelf books={wantToRead} title={"Want to Read"} />
-                <Shelf books={read} title={"Read"} />
+                <Shelf books={currentlyReading} title="Currently Reading Yo" changeShelf={this.props.changeShelf}/>
+                <Shelf books={wantToRead} title="Want to Read Yo" changeShelf={this.props.changeShelf}/>
+                <Shelf books={read} title="Read Yo" />
             </div>
           </div>
 
