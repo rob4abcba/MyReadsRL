@@ -7,7 +7,7 @@ import { Route } from "react-router-dom";
 import Shelves from "./components/Shelves";
 import Header from "./components/Header";
 import SearchButton from "./components/SearchButton";
-import Search from "./components/Search";
+import SearchPage from "./components/pages/SearchPage";
 import * as BooksAPI from "./BooksAPI";
 
 class BooksApp extends React.Component {
@@ -58,7 +58,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-          <Search updateSearchPageStateYo={this.updateSearchPageState} />
+          <SearchPage updateSearchPageStateYo={this.updateSearchPageState} />
         ) : (
           <div className="list-books">
             <Header />
