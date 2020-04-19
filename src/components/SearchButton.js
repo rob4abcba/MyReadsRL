@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 class SearchButton extends React.Component {
     render() {
         return(
             <div className="open-search">
-            <button onClick={() => {this.props.updateSearchPageStateYo(true)}}>Add a book</button>
+            {/* <button onClick={() => {this.props.updateSearchPageStateYo(true)}}>Add a book</button> */}
+            <Link className="open-search" to="/search">Find a Book to Add</Link>
           </div>
         )
     }
