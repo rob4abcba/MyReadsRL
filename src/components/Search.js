@@ -5,6 +5,7 @@ class Search extends React.Component {
         return (
             <div className="search-books">
             <div className="search-books-bar">
+              {/* button "close-search" here in Search.js got changed to Link in SearchPage.js */}
               <button className="close-search" onClick={() => this.props.updateSearchPageStateYo(false)}>Close</button>
               <div className="search-books-input-wrapper">
                 {/*
