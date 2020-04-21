@@ -9,7 +9,7 @@ import SearchButton from "../../components/SearchButton";
 import SearchPage from "../../components/pages/SearchPage";
 import * as BooksAPI from "../../BooksAPI";
 
-class BooksApp extends React.Component {
+class MainPage extends React.Component {
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -75,4 +75,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp;
+export default MainPage;
