@@ -24,7 +24,7 @@ class Book extends React.Component {
                         width: 128,
                         height: 193,
                         backgroundImage:
-                          `url(${this.props.book.imageLinks.thumbnail})`
+                        this.props.book.imageLinks ? `url(${this.props.book.imageLinks.thumbnail})` : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR1VmfphhWdLzi8c69ruE0rLVSDj4lbokmQJC49uwZFJvn5rdaE&usqp=CAU'
                       }}
                     ></div>
                     <div className="book-shelf-changer">
