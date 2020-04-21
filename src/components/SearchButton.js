@@ -2,6 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 class SearchButton extends React.Component {
+
+    componentDidMount() {
+        console.log(this)
+    }
+
     render() {
         return(
             <div className="open-search">

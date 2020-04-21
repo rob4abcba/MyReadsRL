@@ -2,6 +2,12 @@ import React from 'react';
 import Shelf from './Shelf';
 
 class Shelves extends React.Component {
+
+    componentDidMount() {
+        //console.log("Shelves.js:") //No need to say this because DevTools Console already shows which file is doing the console.log
+        console.log(this)
+    }
+
     render() {
         const allBooks = this.props.allBooks;
         console.log("allBooks = ", allBooks);
