@@ -9,11 +9,16 @@ import SearchPage from "./components/pages/SearchPage";
 
 class BooksApp extends React.Component {
 
-  // updateBook(book, shelf) {
+  // Decided to put the .update method below in MainPage.js & SearchPage.js instead of here:
+  // updateBookShelfStateRW = (book, shelf) => {
   //   BooksAPI.update(book, shelf)
-  // }
-
-
+  //   .then(resp => {
+  //     book.shelf = shelf;
+  //     this.setState(state => ({
+  //       books: state.books.filter(b => b.id !== book.id).concat([book])
+  //     }))
+  //   })
+  // };
 
   render() {
     return (
