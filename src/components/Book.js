@@ -24,11 +24,11 @@ class Book extends React.Component {
                         width: 128,
                         height: 193,
                         backgroundImage:
-                          `url(${book.imageLinks.thumbnail})`
+                          `url(${this.props.book.imageLinks.thumbnail})`
                       }}
                     ></div>
                     <div className="book-shelf-changer">
-                      <select value={book.shelf} onChange={e => this.props.changeShelf(book, e.target.value)}>
+                      <select value={this.props.book.shelf} onChange={e => this.props.changeShelf(this.props.book, e.target.value)}>
                         <option value="move" disabled>
                           Move to...
                         </option>
@@ -41,8 +41,8 @@ class Book extends React.Component {
                       </select>
                     </div>
                   </div>
-                  <div className="book-title">{book.title}</div>
-                  <div className="book-authors">{book.authors}</div>
+                  <div className="book-title">{this.props.book.title}</div>
+                  <div className="book-authors">{this.props.book.authors}</div>
                 </div>
               </li>
     //         ))}
