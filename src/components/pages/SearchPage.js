@@ -83,7 +83,7 @@ class SearchPage extends React.Component {
               <ol className="books-grid">
               {
                 this.state.results.map( (item,key) => 
-                  <Book key={key} book={item} />
+                  <Book key={key} book={item} changeShelf={this.updateBookShelfStateRW}/>
                 )
               }
               </ol>
