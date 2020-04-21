@@ -10,6 +10,13 @@ import SearchPage from "../../components/pages/SearchPage";
 import * as BooksAPI from "../../BooksAPI";
 
 class MainPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+        books: []
+    }
+  }
+
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -50,7 +57,11 @@ class MainPage extends React.Component {
   };
 
   componentDidMount() {
-    BooksAPI.getAll().then(resp => this.setState({ books: resp }));
+    // BooksAPI.getAll().then(resp => this.setState({ books: resp }));
+    BooksAPI.getAll().then(resp => {
+      console.log(resp)
+      this.setState({books: resp})
+    })
   }
 
   render() {
