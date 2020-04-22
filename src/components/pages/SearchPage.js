@@ -35,11 +35,11 @@ class SearchPage extends React.Component {
       if(res.error) {
         return this.setState( { results: [] });
       } else {
-        console.log("Look for matches baby!!")
+        console.log("Look for matches baby!! res = ", res)
         res.forEach( b => {
           let f = this.state.books.filter( B => B.id === b.id);
           if(f[0]) {
-            console.log("Found a match baby!!")
+            console.log("On appropriate shelf, put book f[0] = ", f[0])
             b.shelf = f[0].shelf;
           }
         })
